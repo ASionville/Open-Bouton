@@ -7,19 +7,23 @@ import subprocess
 TOKEN = "NjkwNTM3NzIzNzA1OTUwMjM4.XnS31Q.nUBoW61fgZfgo3Zt0P7jrjf7gZU"
 client = commands.Bot(command_prefix = ".")
 
-#Liste Commandes disponibles via UDP
-available_commands = {'hello' : "hello()"}
-
+SERVER_ID = 698571178561896608
+CHANNEL_ID = 698640778720837792
+SERVER = ""
 #Subprocess pour reception UDP
 reception = subprocess.Popen(['python', 'udp_receiver.py'])
+
+async def hello():
+    CHANNEL = SERVER.get_channel(CHANNEL_ID)
+    await CHANNEL.send("Le lab est ouvert")
 
 #Nettoyage fichier
 async def cleaner():
     with open('data.txt') as f:
         print(f.write(""))
 
-#Programme principal, boucle 30s
-@tasks.loop(seconds=30.0)
+#Programme principal, boucle 15s
+@tasks.loop(seconds=15.0)
 async def get_data():
 
     try:
@@ -33,14 +37,13 @@ async def get_data():
 
                 current_command = data[-1][:-1]
                 try:
-                    #Si commande existe
-                    await exec(available_commands[current_command])
-                    await cleaner
-
-                except KeyError:
-                    print("Cette commande n'existe pas")
+                    if current_command == "hello":
+                        await hello()
+                    else:
+                        print("Cette commande n'existe pas")
+                    await cleaner()
                 except Exception as error:
-                    print(f"Erreur inconnue : {error}")
+                    print(f"Erreur : {error}")
 
     except Exception as e:
         print(f"Erreur : {e}")
@@ -49,7 +52,9 @@ async def get_data():
 @client.event
 async def on_ready():
     print('Bot online')
+    global SERVER
 
+    SERVER = client.get_guild(SERVER_ID)
 #On démarre tout
 get_data.start()
 client.run(TOKEN)
