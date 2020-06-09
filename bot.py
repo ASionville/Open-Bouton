@@ -2,6 +2,10 @@
 import discord
 from discord.ext import commands, tasks
 import subprocess
+import re
+
+#Regex pour test validité msg UDP
+pattern = '^open-([1-9]|1[0-4])$'
 
 #Variables DISCORD
 TOKEN = "NjkwNTM3NzIzNzA1OTUwMjM4.XnS31Q.nUBoW61fgZfgo3Zt0P7jrjf7gZU"
@@ -13,9 +17,19 @@ SERVER = ""
 #Subprocess pour reception UDP
 reception = subprocess.Popen(['python', 'udp_receiver.py'])
 
-async def hello():
+async def lab_open(current_command):
     CHANNEL = SERVER.get_channel(CHANNEL_ID)
-    await CHANNEL.send("Le lab est ouvert")
+
+    #on récupère le nb de demis heures
+    nb_dheures = current_command[-1] if len(current_command) == 6 else current_command[-2:]
+    nb_dheures = int(nb_dheures)
+
+    if nb_dheures == 1:
+        await CHANNEL.send("Le lab est ouvert pendant 30 minutes")
+
+    else:
+        await CHANNEL.send(f"Le lab est ouvert pendant {nb_dheures//2}h{30 if nb_dheures%2 else ''}")
+
 
 #Nettoyage fichier
 async def cleaner():
@@ -36,9 +50,11 @@ async def get_data():
             if len(data) >= 1:
 
                 current_command = data[-1][:-1]
+                command_ok = re.match(pattern, current_command)
+
                 try:
-                    if current_command == "hello":
-                        await hello()
+                    if command_ok:
+                        await lab_open(current_command)
                     else:
                         print("Cette commande n'existe pas")
                     await cleaner()
