@@ -19,8 +19,8 @@ async def hello():
 
 #Nettoyage fichier
 async def cleaner():
-    with open('data.txt') as f:
-        print(f.write(""))
+    open('data.txt', 'w').close()
+
 
 #Programme principal, boucle 15s
 @tasks.loop(seconds=15.0)
