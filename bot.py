@@ -5,7 +5,7 @@ import subprocess
 import re
 
 #Regex pour test validité msg UDP
-pattern = '^open-([1-9]|1[0-4])$'
+pattern = '^open-([1-9]|1[0-9]|2[0-4])$'
 
 #Variables DISCORD
 TOKEN = "NjkwNTM3NzIzNzA1OTUwMjM4.XnS31Q.nUBoW61fgZfgo3Zt0P7jrjf7gZU"
