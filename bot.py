@@ -3,6 +3,7 @@ import discord
 from discord.ext import commands, tasks
 import subprocess
 import re
+from datetime import *
 
 #Regex pour test validité msg UDP
 pattern = '^open-([1-9]|1[0-9]|2[0-4])$'
@@ -15,20 +16,32 @@ SERVER_ID = 698571178561896608
 CHANNEL_ID = 698640778720837792
 SERVER = ""
 #Subprocess pour reception UDP
-reception = subprocess.Popen(['python', 'udp_receiver.py'])
+reception = subprocess.Popen(['python3', 'udp_receiver.py'])
+
+def time_rounded():
+    now = datetime.now()
+    rounded = now - (now - datetime.min) % timedelta(minutes=30)
+    return rounded.hour, rounded.minute
 
 async def lab_open(current_command):
     CHANNEL = SERVER.get_channel(CHANNEL_ID)
 
     #on récupère le nb de demis heures
-    nb_dheures = current_command[-1] if len(current_command) == 6 else current_command[-2:]
-    nb_dheures = int(nb_dheures)
+    nb_demi_heures = current_command[-1] if len(current_command) == 6 else current_command[-2:]
+    nb_demi_heures = int(nb_demi_heures)
 
-    if nb_dheures == 1:
-        await CHANNEL.send("Le lab est ouvert pendant 30 minutes")
+    heures_round, minutes_round = time_rounded()
 
-    else:
-        await CHANNEL.send(f"Le lab est ouvert pendant {nb_dheures//2}h{30 if nb_dheures%2 else ''}")
+    heure_fin = heures_round + (nb_demi_heures//2)
+    minutes_fin = minutes_round + 30 if nb_demi_heures % 2 else minutes_round
+
+    if minutes_fin >= 60:
+        heure_fin += 1
+        minutes_fin -= 60
+
+    heure_fin = heure_fin - 24 if heure_fin >= 24 else heure_fin
+
+    await CHANNEL.send(f"Le lab est ouvert de {heures_round}h{minutes_round if minutes_round % 2 else ''} jusqu'à {heure_fin}h{minutes_fin if minutes_fin % 2 else ''}")
 
 
 #Nettoyage fichier
