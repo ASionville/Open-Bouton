@@ -1,12 +1,10 @@
 import socket
 import time
-
-UDP_IP = "192.168.2.21"
-UDP_PORT = 5005
+from config import HOST_IP, HOST_PORT
 
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
-sock.bind((UDP_IP, UDP_PORT))
+sock.bind((HOST_IP, HOST_PORT))
 
 def write_command(data):
 	with open('data.txt', 'a') as file:
