@@ -12,7 +12,7 @@ def write_command(data):
 
 time.sleep(5)
 while True:
-	data, addr = sock.recvfrom(1024) # Buffer en 1024
+	data, addr = sock.recvfrom(1024) # Buffer
 	print("a")
 	data = str(data)[2:-1]
 	write_command(data)
