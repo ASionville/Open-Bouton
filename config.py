@@ -1,6 +1,6 @@
 # Token du Bot, récupérez-en un lors de la création du bot à https://discord.com/developers/applications
 # Bot token, get one at https://discord.com/developers/applications
-TOKEN = 'token_here'
+TOKEN = 'token'
 
 # Identifiants du serveur et du channel, plus d'info à
 # https://support.discord.com/hc/fr/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-
@@ -13,3 +13,7 @@ CHANNEL_ID = 123456
 # Laisser vide
 # Let empty
 SERVER = ""
+
+# IP locale de l'ordinateur hébergeant le bot
+# Local IP of Bot host
+HOST_IP = "192.168.X.X"
