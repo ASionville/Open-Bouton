@@ -14,6 +14,7 @@ CHANNEL_ID = 123456
 # Let empty
 SERVER = ""
 
-# IP locale de l'ordinateur hébergeant le bot
-# Local IP of Bot host
+# IP locale de l'ordinateur hébergeant le bot et port de connection UDP
+# Local IP of Bot host and UDP connexion port
 HOST_IP = "192.168.X.X"
+HOST_PORT = 5005
