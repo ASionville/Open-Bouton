@@ -1,5 +1,6 @@
 #include "rotary.h"
 
+int lastState = 0;
 
 Rotary leCodeur(13, 12, 14);
 
@@ -9,9 +10,11 @@ void setup(){
 }
 
 void loop(){
-  if (leCodeur.readSwitch()) {
-    Serial.println(leCodeur.readSwitch());
+  if(leCodeur.readRotary() != lastState){
+    lastState = leCodeur.readRotary();
+    Serial.println(lastState);
   }
-  leCodeur.readRotary();
-  //Serial.println(leCodeur.readRotary());
+  if(!leCodeur.readSwitch()){
+    Serial.println("switch");
+  }
 }
