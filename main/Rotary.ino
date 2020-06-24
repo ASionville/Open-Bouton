@@ -24,6 +24,9 @@ bool Rotary::readSwitch(){
     delay(80);
   }
   swLast=swState;
+  if (!swState) {
+      this->rotVal = 0;
+  }
   return swState;
 }
 
@@ -43,7 +46,7 @@ int Rotary::readRotary(){
         }
       }
       Serial.println(this->rotVal);
-      delay(100);
+      delay(150);
     }
   this->clkLast = this->clkState;
   return this->rotVal;

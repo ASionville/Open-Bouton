@@ -6,6 +6,7 @@
 #define PIXEL_COUNT 24
 
 #include "rotary.h"
+#include "neoled.h"
 
 Adafruit_NeoPixel strip(PIXEL_COUNT, PIXEL_PIN, NEO_GRB + NEO_KHZ800);
 
@@ -13,25 +14,24 @@ int lastState = 0;
 
 Rotary leCodeur(13, 12, 14);
 
+Neoled ledContoleur(64);
+
 void setup(){
   Serial.begin(9600);
   Serial.println(F("Initialize System"));
 
 
-  strip.begin(); // Initialize NeoPixel strip object (REQUIRED)
-  strip.show();  // Initialize all pixels to 'off'
-  strip.setBrightness(64);
+
 }
 
 void loop(){
   if(leCodeur.readRotary() != lastState){
     lastState = leCodeur.readRotary();
     Serial.println(lastState);
-    strip.setPixelColor(lastState, 255, 255, 255);         //  Set pixel's color (in RAM)
-    strip.show();
+    ledContoleur.actLed(lastState);
   }
   if(!leCodeur.readSwitch()){
     Serial.println("switch");
+    ledContoleur.actLed(0);
   }
-
 }
