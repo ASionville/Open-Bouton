@@ -11,7 +11,11 @@ void Neoled::actLed(int nb){
   strip.clear();
   if (nb != 0) {
     for (int i = 0; i < nb+1; i++) {
-      strip.setPixelColor(i-1, 255, 255, 255);
+      if (i%2 == 0) {
+        strip.setPixelColor(i-1, 255, 255, 255);
+      }else{
+        strip.setPixelColor(i-1, 255, 0, 0);
+      }
     }
   }
   strip.show();
