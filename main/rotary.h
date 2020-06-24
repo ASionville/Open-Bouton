@@ -4,18 +4,20 @@
 
 class Rotary{
 private :
-  const int clkPin  = 13;
-  const int dtPin  = 12;
-  const int swPin  = 14;
+  int clkPin;
+  int dtPin;
+  int swPin;
 
-  int rotVal  = 0;
-  bool clkState  = LOW;
-  bool clkLast  = HIGH;
-  bool swState  = HIGH;
-  bool swLast  = HIGH;
+  int rotVal;
+  bool clkState;
+  bool clkLast;
+  bool swState;
+  bool swLast;
 public :
-  Rotary(clkPin,dtPin,swPin);
-}
+  Rotary(int unClkPin, int unDtPin, int unSwPin);
+  bool readSwitch();
+  int readRotary();
+};
 
 
 
