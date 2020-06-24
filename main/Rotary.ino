@@ -38,8 +38,8 @@ int Rotary::readRotary(){
         }
       }else{
         rotVal++;
-        if ( this->rotVal > 24 ){
-         this->rotVal = 24;
+        if ( this->rotVal > 25 ){
+         this->rotVal = 25;
         }
       }
       Serial.println(this->rotVal);
