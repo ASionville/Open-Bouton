@@ -20,16 +20,18 @@ void setup(){
 
   strip.begin(); // Initialize NeoPixel strip object (REQUIRED)
   strip.show();  // Initialize all pixels to 'off'
+  strip.setBrightness(64);
 }
 
 void loop(){
   if(leCodeur.readRotary() != lastState){
     lastState = leCodeur.readRotary();
     Serial.println(lastState);
+    strip.setPixelColor(lastState, 255, 255, 255);         //  Set pixel's color (in RAM)
+    strip.show();
   }
   if(!leCodeur.readSwitch()){
     Serial.println("switch");
   }
-  strip.setPixelColor(5, 255, 255, 255);         //  Set pixel's color (in RAM)
-  strip.show();
+
 }
