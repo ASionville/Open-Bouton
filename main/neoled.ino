@@ -20,3 +20,7 @@ void Neoled::actLed(int nb){
   }
   strip.show();
 }
+
+int Neoled::getledNB(){
+  return this->ledNb;
+}

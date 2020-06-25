@@ -7,6 +7,7 @@ private :
 public :
   Neoled(int bright);
   void actLed(int nb);
+  int getledNB();
 };
 
 
