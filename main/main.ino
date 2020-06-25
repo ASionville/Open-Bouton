@@ -42,7 +42,7 @@ void loop(){
   if(!leCodeur.readSwitch()){
     Serial.println("switch");
     Udp.beginPacket(IPCible, localUdpPort);
-    Udp.print("open");
+    Udp.print("open-");
     Udp.print(ledContoleur.getledNB());
     Udp.endPacket();
     ledContoleur.actLed(0);
