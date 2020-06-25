@@ -3,11 +3,12 @@ ESP-Raspberry Clock Entrance Button
 
 [![N|Solid](https://www.lab-ouest.org/tiki-download_file.php?fileId=141&display)](https://www.lab-ouest.org/)
 
-*If French is not your main language, we recommend you to check the English Version*
+*If French is not your main language, we recommend you to check the [English Version](README_en.md)*
 
 Explications
 ------------
 Ce programme repose sur un Arduino ESP 8266 et un Raspberry Pi connectés via DNS
+
 Un bouton fait maison est également à imprimer en 3D et à assembler
 
 Dans le dossier `Raspberry` figure le code Python pour le Raspberry :
