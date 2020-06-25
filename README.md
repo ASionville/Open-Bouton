@@ -48,7 +48,7 @@ Installation
 - Placez tous les fichiers dans `/home/pi/udp_esp_button` (vous devrez créer le dossier)
 
 - Vous pouvez alors modifier le fichier `config.py`, les instructions sont dans le fichier lui-même
-- Dans le fichier `start.sh`, vous allez pouvoir mettre un `#` devant la ligne qui n'est **pas** celle qui renvoyais Python 3.X précédemment
+- Dans le fichier `start.sh`, vous allez pouvoir enlever le `#` devant la ligne qui renvoyais Python 3.X précédemment
 
 - Ensuite pour devrez [faire un serveur DNS](https://www.ionos.fr/digitalguide/serveur/configuration/comment-creer-un-serveur-dns-a-partir-dun-raspberry-pi/) sur votre Raspberry
 

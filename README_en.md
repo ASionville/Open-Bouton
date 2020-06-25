@@ -48,7 +48,7 @@ Installation
 - Place all files in `/home/pi/udp_esp_button` (you will have to create the folder)
 
 - You can then modify the file `config.py`, the instructions are in the file itself
-- In the file `start.sh`, you will be able to put a` # `in front of the line which is ** not ** the one which returned Python 3.X previously
+- In the file `start.sh`, you will be able to remove the `#` in front of the line which returned Python 3.X previously
 
 - Then you will have to [make a DNS server](https://www.howtoforge.com/tutorial/howto-install-raspbian-on-raspberry-pi/) on your Raspberry
 
