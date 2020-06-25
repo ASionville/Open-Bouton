@@ -18,7 +18,7 @@ Dans le dossier `Raspberry` figure le code Python pour le Raspberry :
 
 Dans le dossier `Arduino` figure le code C++ pour l'ESP :
 * `m̀ain.ino` : Fichier C++ principal, il gère le lien entre les composants ainsi que la communication UDP
-* `rotary.ino` : Fichier C++ qui contrôle la reception du signal transmit par le bouton rotatif
+* `rotary.ino` : Fichier C++ qui contrôle la reception du signal transmis par le bouton rotatif
 * `neoled.ino` : Fichier C++ qui contrôle l'allumage des LEDs
 * Les `[].h` : Déclaration des classes utilisées dans les fichiers `.ino` correspondants
 
@@ -39,7 +39,7 @@ Installation
 
 #### Partie Raspberry
 
-- En premier lieu, il vous faudra installer Raspbian sur le raspberry, un tutoriel à ce sujet est disponible [ici](https://www.raspberrypi-france.fr/guide/installer-raspbian-raspberry-pi/)⋅⋅
+- En premier lieu, il vous faudra installer Raspbian sur le raspberry, un tutoriel à ce sujet est disponible [ici](https://www.raspberrypi-france.fr/guide/installer-raspbian-raspberry-pi/)
 
 - Il faut ensuite vérifier que Python 3 soit installé sur le raspberry, pour cela tapez `python --version` puis `python3 --version` dans un terminal et vérifiez bien qu'une de ces deux commandes renvoies un python 3.X
 
@@ -55,7 +55,7 @@ Installation
 
 ##### Lancer le script au démarrage
 
-Si votre Raspberry redémarre, vous devrez relancer le script vous-même, pour pallier à celà, vous pouvez le faire se lancer au démarrage comme celà :
+Si votre Raspberry redémarre, vous devrez relancer le script vous-même, pour pallier à cela, vous pouvez le faire se lancer au démarrage comme cela :
 * Tapez `sudo nano /etc/rc.local` dans un terminal
 * Avant la dernière ligne (`exit 0`), tapez `bash /home/pi/udp_esp_button/start.sh`
 * Sauvegardez et fermez le fichier
