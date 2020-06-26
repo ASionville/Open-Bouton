@@ -21,10 +21,11 @@ reception = subprocess.Popen(['python3', 'udp_receiver.py'])
 
 # Arrondi de l'heure actuelle à la demi-heure
 # Rounding from the current hour to half an hour
-def time_rounded():
-    now = datetime.now()
-    rounded = now - (now - datetime.min) % timedelta(minutes=30)
-    return rounded.hour, rounded.minute
+def time_rounded(dt, resolution):
+    direction = 'up' if (dt.minute >= resolution*1.5 or (dt.minute < resolution and dt.minute >= resolution*0.5)) else 'down'
+    new_minute = (dt.minute // resolution + (1 if direction == 'up' else 0)) * resolution
+    new = dt + datetime.timedelta(minutes=new_minute - dt.minute)
+    return new.hour, new.minute
 
 # Fonction principale, envoie le message Discord
 # Main function, sends the Discord message
@@ -39,7 +40,7 @@ async def lab_open(current_command):
 
     # On prend l'arrondi de l'heure actuelle et on ajoute les demi-heures
     # We take the rounding of the current time and add the half hours
-    heures_round, minutes_round = time_rounded()
+    heures_round, minutes_round = time_rounded(datetime.now(), 30)
 
     heure_fin = heures_round + (nb_demi_heures//2)
     minutes_fin = minutes_round + 30 if nb_demi_heures % 2 else minutes_round
