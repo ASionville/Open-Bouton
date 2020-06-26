@@ -54,7 +54,7 @@ async def lab_open(current_command):
     # If we exceed 24 hours, we go to the next day 
     heure_fin = heure_fin - 24 if heure_fin >= 24 else heure_fin
 
-    await CHANNEL.send(f"Le lab est ouvert de {heures_round}h{minutes_round if minutes_round % 2 else ''} jusqu'à {heure_fin}h{minutes_fin if minutes_fin % 2 else ''}")
+    await CHANNEL.send(f"Le lab est ouvert de {heures_round}h{minutes_round if minutes_round != 0 else ''} jusqu'à {heure_fin}h{minutes_fin if minutes_fin != 0 else ''}")
 
 
 # Nettoyage fichier
