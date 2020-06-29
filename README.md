@@ -80,8 +80,13 @@ Si votre Raspberry redémarre, vous devrez relancer le script vous-même, pour p
 License
 ------
 
-La [`license`](LICENSE.md) appliquée à ce projet est une License MIT
+La [`license`](LICENSE) appliquée à ce projet est une License GNU Public License v3
+Cette license autorise le partage, la modification et la redistribution du projet sous ces conditions :
+    - Le code source de votre projet doit être disponible gratuitement
+    - Votre projet doit comporter la license GPLv3 ainsi qu'une mention de copyright en notre faveur
+    - Les modifications apportées doivent être clairement énoncées
 Toutes les spécifications de cette license sont écrites en anglais dans le fichier éponyme.
+
 
 ---
 En cas de problème
