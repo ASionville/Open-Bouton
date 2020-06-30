@@ -3,6 +3,7 @@ import discord
 from discord.ext import commands, tasks
 import subprocess
 import re
+import sys
 from datetime import *
 
 from config import *
@@ -24,7 +25,7 @@ reception = subprocess.Popen(['python3', 'udp_receiver.py'])
 def time_rounded(dt, resolution):
     direction = 'up' if (dt.minute >= resolution*1.5 or (dt.minute < resolution and dt.minute >= resolution*0.5)) else 'down'
     new_minute = (dt.minute // resolution + (1 if direction == 'up' else 0)) * resolution
-    new = dt + datetime.timedelta(minutes=new_minute - dt.minute)
+    new = dt + timedelta(minutes=new_minute - dt.minute)
     return new.hour, new.minute
 
 # Fonction principale, envoie le message Discord
@@ -89,7 +90,10 @@ async def get_data():
                     if command_ok:
                         await lab_open(current_command)
                     else:
-                        print("Cette commande n'existe pas")
+                        if current_command == "stopbot":
+                            sys.exit()
+                        else:
+                            print("Cette commande n'existe pas")
                     await cleaner()
                 except Exception as error:
                     print(f"Erreur : {error}")
