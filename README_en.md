@@ -54,22 +54,22 @@ Do not forget to keep the identifier of your Bot and to [recover the identifiers
 - You must then verify that Python 3 is installed on the raspberry, for that type `python --version` then` python3 --version` in a terminal and verify that one of these two commands returns a python 3.X
 
 - Then download the content of the `Raspberry` folder and send it to the Raspberry (tutorials are easily accessible on the Internet)
-- Place all files in `/home/pi/udp_esp_button` (you will have to create the folder)
+- Place all files in `/home/pi/open_bouton` (you will have to create the folder)
 
 - You can then modify the file `config.py`, the instructions are in the file itself
 - In the file `start.sh`, you will be able to remove the `#` in front of the line which returned Python 3.X previously
 
 - Then you will have to [make a DNS server](https://www.howtoforge.com/tutorial/howto-install-raspbian-on-raspberry-pi/) on your Raspberry
 
-- Grant the right to pi to launch the bot with `cd/home/pi/udp_esp_button` then` chmod 754 start.sh`
+- Grant the right to pi to launch the bot with `cd/home/pi/open_bouton` then` chmod 754 start.sh`
 
-- To start the script, open the `/home/pi/udp_esp_button` folder in the terminal and type`./start.sh`
+- To start the script, open the `/home/pi/open_bouton` folder in the terminal and type`./start.sh`
 
 ##### Startup on boot
 
 If your Raspberry reboots, you will have to relaunch the script yourself, to remedy this, you can it launch at startup like this:
 * Type `sudo nano/etc/rc.local` in a terminal
-* Before the last line (`exit 0`), type` bash /home/pi/udp_esp_button/start.sh`
+* Before the last line (`exit 0`), type` bash /home/pi/open_bouton/start.sh`
 * Save and close the file
 
 ---

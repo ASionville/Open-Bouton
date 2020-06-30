@@ -54,22 +54,22 @@ N'oubliez pas de conserver l'identifiant de votre Bot et de [récupérer les ide
 - Il faut ensuite vérifier que Python 3 soit installé sur le raspberry, pour cela tapez `python --version` puis `python3 --version` dans un terminal et vérifiez bien qu'une de ces deux commandes renvoies un python 3.X
 
 - Ensuite, téléchargez le contenu du dossier `Raspberry` et envoyez-le sur le Raspberry (des tutoriels sont accessibles facilement sur Internet)
-- Placez tous les fichiers dans `/home/pi/udp_esp_button` (vous devrez créer le dossier)
+- Placez tous les fichiers dans `/home/pi/open_bouton` (vous devrez créer le dossier)
 
 - Vous pouvez alors modifier le fichier `config.py`, les instructions sont dans le fichier lui-même
 - Dans le fichier `start.sh`, vous allez pouvoir enlever le `#` devant la ligne qui renvoyais Python 3.X précédemment
 
 - Ensuite pour devrez [faire un serveur DNS](https://www.ionos.fr/digitalguide/serveur/configuration/comment-creer-un-serveur-dns-a-partir-dun-raspberry-pi/) sur votre Raspberry
 
-- Accordez le droit à pi de lancer le bot avec `cd /home/pi/udp_esp_button` puis `chmod 754 start.sh`
+- Accordez le droit à pi de lancer le bot avec `cd /home/pi/open_bouton` puis `chmod 754 start.sh`
 
-- Pour lancer la machine, ouvrez le dossier `/home/pi/udp_esp_button` dans le terminal et tapez `./start.sh`
+- Pour lancer la machine, ouvrez le dossier `/home/pi/open_bouton` dans le terminal et tapez `./start.sh`
 
 ##### Lancer le script au démarrage
 
 Si votre Raspberry redémarre, vous devrez relancer le script vous-même, pour pallier à cela, vous pouvez le faire se lancer au démarrage comme cela :
 - Tapez `sudo nano /etc/rc.local` dans un terminal
-- Avant la dernière ligne (`exit 0`), tapez `bash /home/pi/udp_esp_button/start.sh`
+- Avant la dernière ligne (`exit 0`), tapez `bash /home/pi/open_bouton/start.sh`
 - Sauvegardez et fermez le fichier
 
 ---
@@ -96,7 +96,7 @@ Utilisation
 -----------
 
 #### Allumage du bot
-Pour allumer le bot, vous pouver faire `./home/pi/udp_esp_button/start.sh`
+Pour allumer le bot, vous pouver faire `./home/pi/open_bouton/start.sh`
 
 Pour éteindre le bot, envoyez par UDP ceci : `stopbot`
 
