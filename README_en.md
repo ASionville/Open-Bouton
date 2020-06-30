@@ -60,3 +60,37 @@ If your Raspberry reboots, you will have to relaunch the script yourself, to rem
 * Type `sudo nano/etc/rc.local` in a terminal
 * Before the last line (`exit 0`), type` bash /home/pi/udp_esp_button/start.sh`
 * Save and close the file
+
+---
+#### Arduino Part
+
+- Install the [WifiManager](https://github.com/tzapu/WiFiManager) lib
+- Download the `Arduino` folder and open the file `main/main.ino` in the [Arduino IDE](https://www.arduino.cc/en/Main/Software).
+- In this file, you may change :
+    - The UDP communication port on line 16
+    - The Raspberry Pi local IP on line 20
+- After checking that the card model is well defined, upload the main file to the ESP, it will detect and upload all of the additional files on its own.
+---
+#### Electronic Part
+ - Connect the LED strip and the encoder as shown in the image below:
+ ![`Montage/schema.png`](Montage/schema.png "Schéma Electronique")
+ - A 5V power supply is necessary for the proper functioning of the system, any micro-usb power supply type laptop charger will suffice (the total system has been tested on 5V at around 500mA)
+
+---
+License
+------
+
+The [`license`] (LICENSE) applied to this project is a GNU Public License v3
+This license authorizes sharing, modifying and redistributing the project under these conditions:
+     - The source code of your project must be available for free
+     - Your project must include the GPLv3 license and a copyright notice in our favor
+     - Changes made must be clearly stated
+All the specifications of this license are written in the eponymous file.
+
+
+---
+In case of problem
+------------------
+In case of problems, do not hesitate to contact us by email:
+- aubin.sionville@orange.fr
+Or on our [Discord server] (https://discord.gg/fvUzJbk)

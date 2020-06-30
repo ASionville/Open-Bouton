@@ -12,32 +12,32 @@ Ce programme repose sur un Arduino ESP 8266 et un Raspberry Pi connectés via DN
 Un bouton fait maison est également à imprimer en 3D et à assembler
 
 Dans le dossier `Raspberry` figure le code Python pour le Raspberry :
-* `bot.py` : Fichier Python principal, analyse la reception UDP et gère l'envoi des messages vers Discord
-* `udp_receiver.py` : Fichier Python qui gère la reception UDP et retransmet les messages à `bot.py`
-* `config.py` : Fichier de configuration de la partie Raspberry
-* `data.txt` : Fichier tampon dans lequel sont stockées les commandes UDP avant d'être traitées
+- `bot.py` : Fichier Python principal, analyse la reception UDP et gère l'envoi des messages vers Discord
+- `udp_receiver.py` : Fichier Python qui gère la reception UDP et retransmet les messages à `bot.py`
+- `config.py` : Fichier de configuration de la partie Raspberry
+- `data.txt` : Fichier tampon dans lequel sont stockées les commandes UDP avant d'être traitées
 
 Dans le dossier `Arduino` figure le code C++ pour l'ESP :
-* `m̀ain.ino` : Fichier C++ principal, il gère le lien entre les composants ainsi que la communication UDP
-* `rotary.ino` : Fichier C++ qui contrôle la reception du signal transmis par le bouton rotatif
-* `neoled.ino` : Fichier C++ qui contrôle l'allumage des LEDs
-* Les `[].h` : Déclaration des classes utilisées dans les fichiers `.ino` correspondants
+- `m̀ain.ino` : Fichier C++ principal, il gère le lien entre les composants ainsi que la communication UDP
+- `rotary.ino` : Fichier C++ qui contrôle la reception du signal transmis par le bouton rotatif
+- `neoled.ino` : Fichier C++ qui contrôle l'allumage des LEDs
+- Les `[].h` : Déclaration des classes utilisées dans les fichiers `.ino` correspondants
 
 Dans le dossier `Montage` figurent les fichiers pour l'impression 3D du bouton ainsi que le diagramme de l'électronique
 
 
-
+---
 Installation
 ------------
 #### Prérequis
 
-* Un [Arduino ESP 8266](https://www.banggood.com/Geekcreit-D1-Mini-NodeMcu-Lua-WIFI-ESP8266-Development-Board-Module-p-1044858.html?akmClientCountry=FR&p=RA18043558422201601Y&cur_warehouse=CN)
-* Un [Raspberry Pi](https://www.amazon.fr/Raspberry-Pi-Official-Desktop-Starter/dp/B01CI5879A/)
-* Un encodeur [KY-040](https://www.banggood.com/5Pcs-5V-KY-040-Rotary-Encoder-Module-AVR-PIC-p-951151.html?akmClientCountry=FR&p=RA18043558422201601Y&cur_warehouse=CN)
-* Une [bande de leds]
-* De quoi imprimer en 3D le bouton
+- Un [Arduino ESP 8266](https://www.banggood.com/Geekcreit-D1-Mini-NodeMcu-Lua-WIFI-ESP8266-Development-Board-Module-p-1044858.html?akmClientCountry=FR&p=RA18043558422201601Y&cur_warehouse=CN)
+- Un [Raspberry Pi](https://www.amazon.fr/Raspberry-Pi-Official-Desktop-Starter/dp/B01CI5879A/)
+- Un encodeur [KY-040](https://www.banggood.com/5Pcs-5V-KY-040-Rotary-Encoder-Module-AVR-PIC-p-951151.html?akmClientCountry=FR&p=RA18043558422201601Y&cur_warehouse=CN)
+- Une [bande de leds]
+- De quoi imprimer en 3D le bouton
 
-
+---
 #### Partie Raspberry
 
 - En premier lieu, il vous faudra installer Raspbian sur le raspberry, un tutoriel à ce sujet est disponible [ici](https://www.raspberrypi-france.fr/guide/installer-raspbian-raspberry-pi/)
@@ -57,6 +57,40 @@ Installation
 ##### Lancer le script au démarrage
 
 Si votre Raspberry redémarre, vous devrez relancer le script vous-même, pour pallier à cela, vous pouvez le faire se lancer au démarrage comme cela :
-* Tapez `sudo nano /etc/rc.local` dans un terminal
-* Avant la dernière ligne (`exit 0`), tapez `bash /home/pi/udp_esp_button/start.sh`
-* Sauvegardez et fermez le fichier
+- Tapez `sudo nano /etc/rc.local` dans un terminal
+- Avant la dernière ligne (`exit 0`), tapez `bash /home/pi/udp_esp_button/start.sh`
+- Sauvegardez et fermez le fichier
+
+---
+#### Partie Arduino
+
+- Installez la librairie [WifiManager](https://github.com/tzapu/WiFiManager)
+- Téléchargez le dossier `Arduino` et ouvrez le fichier `main/main.ino` qu'il contient dans l'[IDE Arduino](https://www.arduino.cc/en/Main/Software).
+- Dans ce fichier, changez si vous le voulez 
+    - Le port de communication UDP à la ligne 16
+    - L'IP du Raspberry Pi à la ligne 20
+- Après avoir vérifié que la modèle de carte est bien défini, uploadez le fichier dans l'ESP, il détectera et uploadera tout seul chacun des fichiers annexes.
+---
+#### Partie Electronique
+ - Branchez la bande de LEDs et l'encodeur comme indiquée sur l'image ci-dessous : 
+ ![`Montage/schema.png`](Montage/schema.png "Schéma Electronique")
+ - Une alimentation de 5V est nécessaire au bon fonctionnement du système, n'importe quelle alimentation micro-usb type chargeur de portable suffira (le système total a été testé sur 5V à environ 500mA)
+
+---
+License
+------
+
+La [`license`](LICENSE) appliquée à ce projet est une License GNU Public License v3
+Cette license autorise le partage, la modification et la redistribution du projet sous ces conditions :
+    - Le code source de votre projet doit être disponible gratuitement
+    - Votre projet doit comporter la license GPLv3 ainsi qu'une mention de copyright en notre faveur
+    - Les modifications apportées doivent être clairement énoncées
+Toutes les spécifications de cette license sont écrites en anglais dans le fichier éponyme.
+
+
+---
+En cas de problème
+------------------
+En cas de problème, n'hésitez pas à nous contacter par mail :
+- aubin.sionville@orange.fr
+Ou sur notre [serveur Discord](https://discord.gg/fvUzJbk)
