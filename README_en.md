@@ -1,6 +1,9 @@
 ESP-Raspberry Clock Entrance Button
 ===================================
 
+[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
+
 [![N|Solid](https://www.lab-ouest.org/tiki-download_file.php?fileId=141&display)](https://www.lab-ouest.org/)
 
 *If you are French, we recommend you to check the [French Version](README.md)*
@@ -37,6 +40,13 @@ Installation
 * A [led strip]
 * Something to 3D print the button
 
+---
+### Discord part
+
+You will need to [create a Discord Bot and a server](https://realpython.com/how-to-make-a-discord-bot-python/)(Stop before the `How to Make a Discord Bot in Python
+`)
+
+Do not forget to keep the identifier of your Bot and to [recover the identifiers of the server and the channel](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-) to which you want to send messages
 
 #### Raspberry Part
 
@@ -51,6 +61,8 @@ Installation
 - In the file `start.sh`, you will be able to remove the `#` in front of the line which returned Python 3.X previously
 
 - Then you will have to [make a DNS server](https://www.howtoforge.com/tutorial/howto-install-raspbian-on-raspberry-pi/) on your Raspberry
+
+- Grant the right to pi to launch the bot with `cd/home/pi/udp_esp_button` then` chmod 754 start.sh`
 
 - To start the script, open the `/home/pi/udp_esp_button` folder in the terminal and type`./start.sh`
 
@@ -76,6 +88,9 @@ If your Raspberry reboots, you will have to relaunch the script yourself, to rem
  ![`Montage/schema.png`](Montage/schema.png "Schéma Electronique")
  - A 5V power supply is necessary for the proper functioning of the system, any micro-usb power supply type laptop charger will suffice (the total system has been tested on 5V at around 500mA)
 
+###### Photo of the final system
+![Photo of the final system](Montage/bouton.png)
+
 ---
 License
 ------
@@ -93,4 +108,11 @@ In case of problem
 ------------------
 In case of problems, do not hesitate to contact us by email:
 - aubin.sionville@orange.fr
-Or on our [Discord server] (https://discord.gg/fvUzJbk)
+- cle.chec@laposte.net
+
+Or on our [Discord server](https://discord.gg/fvUzJbk)-
+
+---
+Support us
+----------
+BTC Adress: `3Hkvtm6uYy27X76buSNepsQcZ77692cLMm`

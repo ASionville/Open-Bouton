@@ -1,5 +1,7 @@
 ESP-Raspberry Clock Entrance Button
 ===================================
+[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 
 [![N|Solid](https://www.lab-ouest.org/tiki-download_file.php?fileId=141&display)](https://www.lab-ouest.org/)
 
@@ -38,6 +40,13 @@ Installation
 - De quoi imprimer en 3D le bouton
 
 ---
+### Partie Discord
+
+Il va vous falloir [créer votre serveur Discord](https://www.supinfo.com/articles/single/10420-creer-serveur-discord) puis [créer votre bot](https://dylanbonjean.wordpress.com/2018/01/05/bot-discord/) (Arrêtez vous au point 7 sur ce dernier tutoriel)
+
+N'oubliez pas de conserver l'identifiant de votre Bot et de [récupérer les identifiants du serveur et du channel](https://support.discord.com/hc/fr/articles/206346498-O%C3%B9-trouver-l-ID-de-mon-compte-utilisateur-serveur-message-) sur lequel vous voulez envoyer les messages
+
+---
 #### Partie Raspberry
 
 - En premier lieu, il vous faudra installer Raspbian sur le raspberry, un tutoriel à ce sujet est disponible [ici](https://www.raspberrypi-france.fr/guide/installer-raspbian-raspberry-pi/)
@@ -51,6 +60,8 @@ Installation
 - Dans le fichier `start.sh`, vous allez pouvoir enlever le `#` devant la ligne qui renvoyais Python 3.X précédemment
 
 - Ensuite pour devrez [faire un serveur DNS](https://www.ionos.fr/digitalguide/serveur/configuration/comment-creer-un-serveur-dns-a-partir-dun-raspberry-pi/) sur votre Raspberry
+
+- Accordez le droit à pi de lancer le bot avec `cd /home/pi/udp_esp_button` puis `chmod 754 start.sh`
 
 - Pour lancer la machine, ouvrez le dossier `/home/pi/udp_esp_button` dans le terminal et tapez `./start.sh`
 
@@ -76,10 +87,21 @@ Si votre Raspberry redémarre, vous devrez relancer le script vous-même, pour p
  ![`Montage/schema.png`](Montage/schema.png "Schéma Electronique")
  - Une alimentation de 5V est nécessaire au bon fonctionnement du système, n'importe quelle alimentation micro-usb type chargeur de portable suffira (le système total a été testé sur 5V à environ 500mA)
 
+###### Photo du système final
+![Image du bouton final](Montage/bouton.png)
+
+---
+Utilisation
+-----------
+
+#### Allumage du bot
+Pour allumer le bot, vous pouver faire `./home/pi/udp_esp_button/start.sh`
+
+Pour éteindre le bot, envoyez par UDP ceci : `stopbot`
+
 ---
 License
 ------
-
 La [`license`](LICENSE) appliquée à ce projet est une License GNU Public License v3
 Cette license autorise le partage, la modification et la redistribution du projet sous ces conditions :
     - Le code source de votre projet doit être disponible gratuitement
@@ -87,10 +109,16 @@ Cette license autorise le partage, la modification et la redistribution du proje
     - Les modifications apportées doivent être clairement énoncées
 Toutes les spécifications de cette license sont écrites en anglais dans le fichier éponyme.
 
-
 ---
 En cas de problème
 ------------------
 En cas de problème, n'hésitez pas à nous contacter par mail :
 - aubin.sionville@orange.fr
-Ou sur notre [serveur Discord](https://discord.gg/fvUzJbk)
+- cle.chec@laposte.net
+
+Ou sur notre [serveur Discord](https://discord.gg/fvUzJbk)-
+
+---
+Nous soutenir
+-------------
+Adresse BTC : `3Hkvtm6uYy27X76buSNepsQcZ77692cLMm`
