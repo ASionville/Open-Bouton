@@ -1,8 +1,7 @@
 Open-Button
 ===========
-
-[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
-[![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
+[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)](Arduino/main/main.ino) [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](Raspberry/bot.py)
 
 [![N|Solid](https://www.lab-ouest.org/tiki-download_file.php?fileId=141&display)](https://www.lab-ouest.org/)
 
@@ -83,6 +82,7 @@ If your Raspberry reboots, you will have to relaunch the script yourself, to rem
     - The Raspberry Pi local IP on line 20
 - After checking that the card model is well defined, upload the main file to the ESP, it will detect and upload all of the additional files on its own.
 ---
+
 #### Electronic Part
  - Connect the LED strip and the encoder as shown in the image below:
  ![`Montage/schema.png`](Montage/schema.png "Schéma Electronique")

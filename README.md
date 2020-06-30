@@ -1,7 +1,7 @@
 Open-Bouton
 ===========
-[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
-[![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
+[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)](Arduino/main/main.ino) [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](Raspberry/bot.py)
 
 [![N|Solid](https://www.lab-ouest.org/tiki-download_file.php?fileId=141&display)](https://www.lab-ouest.org/)
 
@@ -82,6 +82,7 @@ Si votre Raspberry redémarre, vous devrez relancer le script vous-même, pour p
     - L'IP du Raspberry Pi à la ligne 20
 - Après avoir vérifié que la modèle de carte est bien défini, uploadez le fichier dans l'ESP, il détectera et uploadera tout seul chacun des fichiers annexes.
 ---
+
 #### Partie Electronique
  - Branchez la bande de LEDs et l'encodeur comme indiquée sur l'image ci-dessous : 
  ![`Montage/schema.png`](Montage/schema.png "Schéma Electronique")
