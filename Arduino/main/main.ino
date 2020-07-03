@@ -13,11 +13,11 @@
 
 // Modifier le port UDP ici (même que config.py)
 // Change UDP port here (same as config.py)
-unsigned int localUdpPort = 8000;
+unsigned int localUdpPort = 5005;
 
 // Mettre l'IP du Raspberry (même que config.py)
 // Put the Raspberry IP adress here (same as config.py)
-const char* IPCible = "192.168.241.113";
+const char* IPCible = "192.168.2.24";
 
 // Initialisation de la liaison wifi
 // Initializing the wifi connexion
