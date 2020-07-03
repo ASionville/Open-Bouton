@@ -20,6 +20,8 @@ public :
   // Fonction qui renvoie le nombre de LEDs allumées
   // Function that returns the number of LEDs lit
   int getledNB();
+
+  void okBlink();
 };
 
 #endif

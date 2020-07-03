@@ -84,9 +84,7 @@ void loop(){
 
     Udp.endPacket();
 
-    // Réinitialisation des LEDs
-    // We reset the LEDs
-    ledContoleur.actLed(0);
+    ledContoleur.okBlink();
 
     // Délai de sécurité
     // Security delay

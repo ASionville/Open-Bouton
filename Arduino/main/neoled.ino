@@ -45,3 +45,30 @@ void Neoled::actLed(int nb){
 int Neoled::getledNB(){
   return this->ledNb;
 }
+
+void Neoled::okBlink(){
+  int tempR;
+  int tempV;
+  int tempB;
+
+  for (int i = 0; i < 3*2; i++) {
+      if(i%2 == 0){
+        tempR = 0;
+        tempV = 0;
+        tempB = 0;
+
+      }else{
+        tempR = 75;
+        tempV = 181;
+        tempB = 67;
+      }
+
+      for (int j = 0; j < 24; j++) {
+        // On fait clignoter les LEDs pour confirmer
+        // We make the LEDs blink to confirm
+        strip.setPixelColor(j-1, tempR, tempV, tempB);
+      }
+
+      strip.show();
+  }
+}
