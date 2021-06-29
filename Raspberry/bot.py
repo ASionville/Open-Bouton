@@ -10,7 +10,7 @@ from config import *
 
 # Regex pour tester la validité du message UDP
 # Regex pattern to check UDP message validity
-PATTERN = '^open-([1-9]|1[0-9]|2[0-4])$'
+PATTERN = '^open-(0|[1-9]|1[0-9]|2[0-4])$'
 
 # Définition du client en bot
 # Defining client as bot
@@ -56,7 +56,15 @@ async def lab_open(current_command):
     # If we exceed 24 hours, we go to the next day 
     heure_fin = heure_fin - 24 if heure_fin >= 24 else heure_fin
 
-    await CHANNEL.send(f"Le lab est ouvert de {heures_round}h{minutes_round if minutes_round != 0 else ''} jusqu'à {heure_fin}h{minutes_fin if minutes_fin != 0 else ''}")
+    # Si on est mardi ou vendredi et qu'on n'appuie qu'une seule fois, on met 22h
+    # If it's tuesday or friday, a simple push means "stay till 10 p.m"
+    day_nb = datetime.date.today().weekday()
+    if nb_demi_heures == 0 and day_nb in [1, 4]:
+        await CHANNEL.send(f"Le lab est ouvert de {heures_round}h{minutes_round if minutes_round != 0 else ''} jusqu'à 22h")
+
+    else:
+
+        await CHANNEL.send(f"Le lab est ouvert de {heures_round}h{minutes_round if minutes_round != 0 else ''} jusqu'à {heure_fin}h{minutes_fin if minutes_fin != 0 else ''}")
 
 
 # Nettoyage fichier
